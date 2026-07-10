@@ -21,7 +21,7 @@ RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist \
 
 COPY . .
 
-RUN npm ci && npm run build
+RUN npm install && npm run build
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage \
