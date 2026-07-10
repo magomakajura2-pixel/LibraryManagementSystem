@@ -37,7 +37,13 @@ final class Database
         $pass    = getenv('DB_PASS')    ?: '';
         $charset = getenv('DB_CHARSET') ?: 'utf8mb4';
 
-        $dsn = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
+        $connection = getenv('DB_CONNECTION') ?: 'mysql';
+
+        if ($connection === 'pgsql') {
+            $dsn = "pgsql:host={$host};port={$port};dbname={$name}";
+        } else {
+            $dsn = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
+        }
 
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
