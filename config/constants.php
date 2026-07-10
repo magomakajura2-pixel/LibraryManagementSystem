@@ -3,7 +3,9 @@
  * Application-wide constants.
  */
 
-define('APP_NAME',    'MAGA Community Library');
+if (!defined('APP_NAME')) {
+    define('APP_NAME',    env('APP_NAME', 'MAGA Community Library'));
+}
 define('APP_VERSION', '1.0.0');
 
 // Base paths
