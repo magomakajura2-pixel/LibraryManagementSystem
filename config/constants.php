@@ -3,33 +3,31 @@
  * Application-wide constants.
  */
 
-if (!defined('APP_NAME')) {
-    define('APP_NAME',    env('APP_NAME', 'MAGA Community Library'));
-}
-define('APP_VERSION', '1.0.0');
+if (!defined('APP_NAME'))    define('APP_NAME',    env('APP_NAME', 'MAGA Community Library'));
+if (!defined('APP_VERSION')) define('APP_VERSION', '1.0.0');
 
 // Base paths
-define('BASE_PATH', dirname(__DIR__));
-define('APP_PATH',  BASE_PATH . '/app');
-define('CONFIG_PATH', BASE_PATH . '/config');
+if (!defined('BASE_PATH'))   define('BASE_PATH', dirname(__DIR__));
+if (!defined('APP_PATH'))    define('APP_PATH',  BASE_PATH . '/app');
+if (!defined('CONFIG_PATH')) define('CONFIG_PATH', BASE_PATH . '/config');
 
-// Base URL — auto-detected so the app works in both root and subdirectory deployments
-$docRoot    = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? 'C:/xampp/htdocs');
+// Base URL
+$docRoot    = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');
 $basePath   = str_replace('\\', '/', BASE_PATH);
 $urlBase    = substr($basePath, strlen(rtrim($docRoot, '/')));
-define('BASE_URL', rtrim($urlBase, '/'));
+if (!defined('BASE_URL')) define('BASE_URL', rtrim($urlBase, '/'));
 
 // Pagination
-define('RECORDS_PER_PAGE', 15);
+if (!defined('RECORDS_PER_PAGE')) define('RECORDS_PER_PAGE', 15);
 
 // Loan defaults
-define('DEFAULT_LOAN_DAYS', 14);
-define('MAX_LOANS_PER_MEMBER', 5);
+if (!defined('DEFAULT_LOAN_DAYS'))    define('DEFAULT_LOAN_DAYS', 14);
+if (!defined('MAX_LOANS_PER_MEMBER')) define('MAX_LOANS_PER_MEMBER', 5);
 
 // Upload
-define('UPLOAD_PATH', BASE_PATH . '/assets/uploads');
-define('MAX_UPLOAD_SIZE', 2 * 1024 * 1024); // 2 MB
+if (!defined('UPLOAD_PATH'))     define('UPLOAD_PATH', BASE_PATH . '/assets/uploads');
+if (!defined('MAX_UPLOAD_SIZE')) define('MAX_UPLOAD_SIZE', 2 * 1024 * 1024);
 
 // Date format
-define('DATE_DISPLAY', 'd M Y');
-define('DATE_DB',      'Y-m-d');
+if (!defined('DATE_DISPLAY')) define('DATE_DISPLAY', 'd M Y');
+if (!defined('DATE_DB'))      define('DATE_DB',      'Y-m-d');
