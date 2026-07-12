@@ -20,8 +20,9 @@ php artisan route:clear
 php artisan view:clear
 php artisan cache:clear
 
-# Run migrations
+# Run migrations and seed database
 php artisan migrate --force
+php artisan db:seed --force
 
 # Configure Apache to listen on Render's assigned PORT
 PORT=${PORT:-10000}
