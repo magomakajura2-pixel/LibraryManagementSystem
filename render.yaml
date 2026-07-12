@@ -12,9 +12,7 @@ services:
       - key: APP_KEY
         generateValue: true
       - key: APP_URL
-        fromDatabase:
-          name: kms-library-db
-          property: host
+        value: https://kms-community-library.onrender.com
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
@@ -39,6 +37,8 @@ services:
           property: password
       - key: SESSION_DRIVER
         value: file
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
       - key: LOG_CHANNEL
         value: stack
     plan: free
