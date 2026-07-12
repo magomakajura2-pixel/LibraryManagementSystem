@@ -6,7 +6,7 @@
     <title>@yield('title', 'Library Management System') — {{ config('app.name') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}?v={{ md5(config('app.key', '')) }}" rel="stylesheet">
 </head>
 <body>
 
@@ -47,6 +47,6 @@
 @endguest
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}?v={{ md5(config('app.key', '')) }}"></script>
 </body>
 </html>
