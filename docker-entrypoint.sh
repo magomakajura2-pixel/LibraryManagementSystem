@@ -14,7 +14,7 @@ mkdir -p bootstrap/cache
 # Set permissions
 chown -R www-data:www-data storage bootstrap/cache
 
-# Clear ALL caches first (old cached config may have wrong APP_URL)
+# Clear ALL old caches (old config may have wrong APP_URL)
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
@@ -22,11 +22,6 @@ php artisan cache:clear
 
 # Run migrations
 php artisan migrate --force
-
-# Re-cache for production
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 
 # Configure Apache to listen on Render's assigned PORT
 PORT=${PORT:-10000}
